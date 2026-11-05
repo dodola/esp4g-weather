@@ -1,0 +1,9 @@
+/build/
+/managed_components/
+/sdkconfig
+/sdkconfig.old
+/tmp/
+/backups/
+/logs/
+/firmware/
+__pycache__/

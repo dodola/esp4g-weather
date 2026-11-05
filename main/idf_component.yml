@@ -1,0 +1,4 @@
+dependencies:
+  idf: ">=5.5.2,<6.0.0"
+  78/esp-ml307: "3.8.1"
+  78/uart-uhci: "0.4.1"

@@ -1,0 +1,47 @@
+menu "4G Weather"
+    config WEATHER_AT_DEBUG
+        bool "Verbose modem AT logs (diagnostics only)"
+        default n
+    config WEATHER_TX_GPIO
+        int "ESP32 TX GPIO (to modem RX)"
+        default 3
+        range 0 21
+    config WEATHER_RX_GPIO
+        int "ESP32 RX GPIO (to modem TX)"
+        default 4
+        range 0 21
+    config WEATHER_EN_GPIO
+        int "MODEM_EN GPIO"
+        default 5
+        range 0 21
+    config WEATHER_BAUD_RATE
+        int "Modem UART baud rate"
+        default 115200
+    config WEATHER_PWRKEY_PULSE
+        bool "Release MODEM_EN after 2.5 second power-on pulse"
+        default y
+        help
+            ML307C requires a 2 to 3.5 second active-low PWR_ON/OFF pulse.
+            GPIO5 drives an inverter, so hold it high for 2.5 seconds.
+            Disable only for modules/boards designed for a sustained enable.
+    config WEATHER_CITY
+        string "Location display name"
+        default "Beijing"
+    config WEATHER_LATITUDE
+        string "Latitude (-90 to 90)"
+        default "39.9042"
+    config WEATHER_LONGITUDE
+        string "Longitude (-180 to 180)"
+        default "116.4074"
+    config WEATHER_INTERVAL_SECONDS
+        int "Successful request interval (seconds)"
+        default 600
+        range 60 86400
+    config WEATHER_RETRY_SECONDS
+        int "Failed request retry interval (seconds)"
+        default 30
+        range 5 600
+    config WEATHER_APN
+        string "APN (empty uses SIM/operator automatic configuration)"
+        default ""
+endmenu
